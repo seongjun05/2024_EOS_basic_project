@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'EOS ToDoList',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        fontFamily: 'Pretendard',
         useMaterial3: true,
       ),
       home:const MyHomePage(),
@@ -27,41 +28,50 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: AppBar(
-      backgroundColor: Colors.lightGreen,
+      backgroundColor: Color(0xFFA4C639).withOpacity(0.1),
       title: Text('Eos ToDoList'),
-      leading: Icon(Icons.check_box),
+      leading: Image.asset('assets/images/eos_logo.png.png'),
     ),
-        body: Container(
-          color: Colors.lightGreen.withOpacity(0.3),
-          height: 200,
-          padding: EdgeInsets.all(25),
-          child: Row(
-            children: [
-              Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(width: 10, color: Colors.grey ),
-                ),
-                child: Icon(
-                  Icons.person, color: Colors.grey,size: 100,
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
+        body: Column(
+          children: [
+            Container(
+              height: 200,
+              padding: EdgeInsets.all(25),
+              child: Row(
                 children: [
-                  Text("EOS"),
-                  Text("이성준", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
-                  Text("에오스 화이팅"),
+                  Container(
+                    width: 140,
+                    height: 140,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(width: 10, color: Colors.grey),
+                      borderRadius: BorderRadius.circular(200)
+                    ),
+                    child: Center(
+                      child: Image.asset('assets/images/eos_logo.png.png')
+                    )
+                  ),
+                  SizedBox(
+                    width: 35,
+                  ),
+                  Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                        Text("이성준", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                        SizedBox(height: 15),
+                        Text("화이팅"),
+                    ],
+                  ))
                 ],
-              )
-            ],
-          ),
+              ),
+            ),
+            Container(
+              height: 445,
+              color: Color(0xFFA4C639).withOpacity(0.1),
+            )
+          ],
         )
     );
   }
